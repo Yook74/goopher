@@ -32,6 +32,3 @@ def parse_proplaylist(file_path: str) -> List[Presentation]:
             playlist.append(presentations[element.name])
 
     return playlist
-
-
-parse_proplaylist('2023-03-19 10_45.proPlaylist')
