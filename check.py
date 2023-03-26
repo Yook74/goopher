@@ -1,6 +1,6 @@
 from argparse import ArgumentParser
 from parse import parse_proplaylist
-from validators import AudienceLookValidator
+from validators import AudienceLookValidator, StickyPropValidator
 
 if __name__ == '__main__':
     parser = ArgumentParser(prog='goopher', description='Inspects ProPresenter playlists for errors (goofs)')
@@ -9,6 +9,10 @@ if __name__ == '__main__':
 
     playlist = parse_proplaylist(args.filename)
 
-    for validator in [AudienceLookValidator()]:
-        validator.validate_playlist(playlist)
+    goofs = []
+    for validator in [AudienceLookValidator(), StickyPropValidator()]:
+        goofs += validator.validate_playlist(playlist)
+
+    for goof in sorted(goofs, reverse=True):
+        print(goof)
 
