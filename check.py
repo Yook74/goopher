@@ -28,6 +28,12 @@ if __name__ == '__main__':
     for validator in [AudienceLookValidator(), StickyPropValidator()]:
         goofs += validator.validate_playlist(playlist)
 
-    for goof in sorted(goofs, reverse=True):
-        print(goof)
+    if not goofs:
+        print('All good!')
+
+    else:
+        for goof in sorted(goofs, reverse=True):
+            print(goof)
+
+    exit(len(goofs))
 
