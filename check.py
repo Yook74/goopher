@@ -2,7 +2,7 @@ from argparse import ArgumentParser
 from parse import parse_proplaylist
 from validators import AudienceLookValidator, StickyPropValidator
 
-gopher = """         ,_---~~~~~----._         
+gopher = r"""         ,_---~~~~~----._         
   _,,_,*^____      _____``*g*\"*, 
  / __/ /'     ^.  /      \ ^@q   f 
 [  @f |  @))   |  |  @))  l  0 _/  
