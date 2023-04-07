@@ -21,7 +21,7 @@ class StickyPropValidator(Validator):
         for pres in playlist:
 
             first_slide = True
-            for slide in pres.cues:
+            for slide in self.get_arranged_slides(pres):
                 if any('clear' in action.name.lower() for action in slide.actions):
                     current_prop = None
 

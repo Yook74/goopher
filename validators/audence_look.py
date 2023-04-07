@@ -17,7 +17,7 @@ class AudienceLookValidator(Validator):
                 continue
 
             look = None
-            for action in pres.cues[0].actions:
+            for action in self.get_arranged_slides(pres)[0].actions:
                 if action.name == 'Audience Look':
                     look = action.audience_look
 
