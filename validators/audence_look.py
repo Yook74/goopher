@@ -24,7 +24,7 @@ class AudienceLookValidator(Validator):
             if look is None:
                 self.goofs.append(Goof(f'no audience look on the first slide of {pres.name}', MAJOR))
 
-            elif 'nothing' in look.identification.parameter_name.lower():
-                self.goofs.append(Goof(f'{pres.name} starts with stream nothing look', MINOR))
+            # elif 'nothing' in look.identification.parameter_name.lower():
+            #     self.goofs.append(Goof(f'{pres.name} starts with stream nothing look', MINOR))
 
         return self.goofs
