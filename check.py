@@ -1,6 +1,6 @@
 from argparse import ArgumentParser
 from parse import parse_proplaylist
-from validators import AudienceLookValidator, StickyPropValidator
+from validators import AudienceLookValidator, StickyPropValidator, TitleDateValidator
 
 gopher = r"""         ,_---~~~~~----._         
   _,,_,*^____      _____``*g*\"*, 
@@ -25,7 +25,7 @@ if __name__ == '__main__':
     playlist = parse_proplaylist(args.filename)
 
     goofs = []
-    for validator in [AudienceLookValidator(), StickyPropValidator()]:
+    for validator in [AudienceLookValidator(), StickyPropValidator(), TitleDateValidator()]:
         goofs += validator.validate_playlist(playlist)
 
     if not goofs:
