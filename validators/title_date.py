@@ -24,7 +24,7 @@ class TitleDateValidator(Validator):
 
         text = rtf_to_text(rtf_text)
         text = text.replace(',', '').replace(' ', '')
-        text = re.sub(r'(\d{5})', r'0\1', text)
+        text = re.sub(r'\D(\d{5})\D', r'0\1', text)
 
         date = None
         for start in range(len(text)):
@@ -43,7 +43,7 @@ class TitleDateValidator(Validator):
         elif (date - datetime.now()) > timedelta(days=6):
             self.goofs = [Goof('Title slide date is more than 6 days in the future')]
 
-        elif date < datetime.now():
+        elif (date + timedelta(23)) < datetime.now():
             self.goofs = [Goof('Title slide date is in the past', MAJOR)]
 
         return self.goofs
